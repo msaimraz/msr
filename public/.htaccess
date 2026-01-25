@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Handle the case where the request is for a directory
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*)/$ $1/index.html [L]
+  
+  # Handle clean URLs (e.g., /about -> /about/index.html)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+  
+  # If file doesn't exist, send to 404.html
+  ErrorDocument 404 /404.html
+</IfModule>
