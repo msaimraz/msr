@@ -5,39 +5,10 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-
-const projects = [
-    {
-        title: "SAP Platform",
-        category: "Stock Analytics",
-        image: "/placeholder-1.jpg",
-        description: "Built a robust stock agent platform using Next.js and Supabase with live market data integration through PSX APIs.",
-        tags: ["Next.js", "Supabase", "PSX APIs"],
-        href: "https://github.com/msaimraz",
-        color: "from-purple-500 to-indigo-500",
-    },
-    {
-        title: "Itnnovator",
-        category: "Software Agency",
-        image: "/placeholder-2.jpg",
-        description: "Developing a modern, high-performance agency website focused on responsive design and speed.",
-        tags: ["Next.js", "Motion", "Tailwind"],
-        href: "https://itnnovator.com",
-        color: "from-blue-500 to-cyan-500",
-    },
-    {
-        title: "ED Management",
-        category: "School System",
-        image: "/placeholder-3.jpg",
-        description: "Developed a comprehensive school management system with custom admin panels and dynamic CRUD features.",
-        tags: ["Next.js", "CRUD", "Management"],
-        href: "https://edschool.pk",
-        color: "from-emerald-500 to-teal-500",
-    },
-];
+import { projects, Project } from "@/lib/data";
 
 function Card({ project, index, range, targetScale, progress }: {
-    project: typeof projects[0],
+    project: Project,
     index: number,
     range: [number, number],
     targetScale: number,
@@ -49,52 +20,68 @@ function Card({ project, index, range, targetScale, progress }: {
         offset: ["start end", "start start"]
     });
 
-    const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+    const imageScale = useTransform(scrollYProgress, [0, 1], [1.5, 1]);
     const scale = useTransform(progress, range, [1, targetScale]);
+
+    // Automated screenshot URL using WordPress.com mshots
+    const screenshotUrl = `https://s0.wp.com/mshots/v1/${encodeURIComponent(project.url)}?w=1200`;
 
     return (
         <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0">
             <motion.div
                 style={{ scale, top: `calc(-5vh + ${index * 25}px)` }}
-                className="relative flex flex-col w-[1000px] h-[550px] bg-neutral-900 rounded-[30px] border border-white/10 p-12 origin-top transform-gpu shadow-2xl overflow-hidden"
+                className="relative flex flex-col w-[1200px] h-[650px] bg-[#0a0a0a] rounded-[32px] border border-white/10 p-14 origin-top transform-gpu shadow-2xl overflow-hidden"
             >
-                {/* Content */}
-                <div className="flex gap-12 h-full z-10 relative">
-                    <div className="w-[40%] flex flex-col justify-between">
+                <div className="flex gap-16 h-full z-10 relative">
+                    {/* Text Content */}
+                    <div className="w-[40%] flex flex-col justify-between py-4">
                         <div>
-                            <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-white mb-6 backdrop-blur-md">
-                                {project.category}
+                            <div className="flex items-center gap-4 mb-8">
+                                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-sm font-mono text-white">
+                                    0{index + 1}
+                                </span>
+                                <span className={`text-sm font-bold tracking-widest uppercase bg-clip-text text-transparent bg-gradient-to-r ${project.color}`}>
+                                    {project.category}
+                                </span>
+                            </div>
+
+                            <h3 className="text-5xl font-bold font-display text-white mb-6 leading-[1.1]">
+                                {project.title}
+                            </h3>
+                            <p className="text-lg text-neutral-400 leading-relaxed mb-8">
+                                {project.description}
+                            </p>
+
+                            <div className="flex flex-wrap gap-2">
+                                {project.tags.map(tag => (
+                                    <span key={tag} className="text-xs font-medium text-neutral-500 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <Link href={project.url} target="_blank" rel="noopener noreferrer" className="inline-block mt-8">
+                            <span className="group inline-flex items-center text-lg font-medium text-white border-b border-white/20 pb-1 hover:border-white transition-colors">
+                                View Case Study <ArrowUpRight className="ml-2 h-5 w-5 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                             </span>
-                            <h3 className="text-4xl font-bold font-display text-white mb-4 leading-tight">{project.title}</h3>
-                            <p className="text-lg text-neutral-400">{project.description}</p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                            {project.tags.map(tag => (
-                                <span key={tag} className="text-sm text-neutral-500 bg-black/20 px-3 py-1 rounded-full">{tag}</span>
-                            ))}
-                        </div>
-
-                        <Link href={project.href} className="mt-8">
-                            <Button as="div" className="w-full h-12 text-base cursor-pointer">
-                                View Case Study <ArrowUpRight className="ml-2 h-4 w-4" />
-                            </Button>
                         </Link>
                     </div>
 
-                    <div className="w-[60%] h-full rounded-2xl overflow-hidden relative">
-                        <motion.div style={{ scale: imageScale }} className="w-full h-full">
-                            {/* Image Placeholder */}
-                            <div className={`w-full h-full bg-gradient-to-br ${project.color} opacity-20`} />
-                            <div className="absolute inset-0 flex items-center justify-center text-white/10 text-4xl font-display font-bold">
-                                PROJECT IMAGE
-                            </div>
+                    {/* Image Container */}
+                    <div className="w-[60%] h-full rounded-2xl overflow-hidden relative bg-neutral-900 border border-white/5">
+                        <motion.div style={{ scale: imageScale }} className="w-full h-full relative">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={screenshotUrl}
+                                alt={project.title}
+                                className="object-cover w-full h-full"
+                            />
+                            {/* Cinematic Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                         </motion.div>
                     </div>
                 </div>
-
-                {/* Noise Overlay */}
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 pointer-events-none mix-blend-overlay" />
             </motion.div>
         </div>
     )
@@ -107,18 +94,20 @@ export default function FeaturedProjects() {
         offset: ["start start", "end end"]
     });
 
+    const recentProjects = projects.slice(0, 3);
+
     return (
-        <section className="relative z-10" id="work" ref={containerRef}>
-            <div className="container mx-auto px-6 pt-32 mb-20 text-center">
-                <h2 className="text-4xl font-bold font-display md:text-6xl text-white mb-6">Selected Work</h2>
-                <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-                    A collection of projects attempting to push boundaries.
+        <div className="relative z-10 bg-black" ref={containerRef}>
+            <div className="container mx-auto px-6 pt-32 mb-10">
+                <h2 className="text-4xl md:text-7xl font-bold font-display text-white mb-6">Recent Work</h2>
+                <p className="text-xl text-neutral-400 max-w-xl">
+                    Deploying scalable solutions for enterprise and startups.
                 </p>
             </div>
 
-            <div className="container mx-auto px-6 pb-32">
-                {projects.map((project, index) => {
-                    const targetScale = 1 - ((projects.length - index) * 0.05);
+            <div className="pb-32">
+                {recentProjects.map((project, index) => {
+                    const targetScale = 1 - ((recentProjects.length - index) * 0.05);
                     return <Card
                         key={index}
                         project={project}
@@ -129,6 +118,14 @@ export default function FeaturedProjects() {
                     />
                 })}
             </div>
-        </section>
+
+            <div className="container mx-auto px-6 pb-32 flex justify-center">
+                <Link href="/projects">
+                    <Button variant="ghost" size="lg" className="text-lg px-8 py-6 rounded-full border border-white/10 hover:bg-white/5 text-white">
+                        View All Projects <ArrowUpRight className="ml-2 h-5 w-5" />
+                    </Button>
+                </Link>
+            </div>
+        </div>
     );
 }

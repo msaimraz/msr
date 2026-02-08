@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { TextReveal } from "@/components/ui/text-reveal";
+import { Button } from "@/components/ui/button";
 
 const experiences = [
     {
-        year: "May 2025 - Present",
+        year: "May 2023 - Present",
         company: "Itnnovator",
         role: "Software Engineer (Remote)",
         description: "Driving engineering excellence and scalable frontend solutions for clients worldwide.",
@@ -21,7 +21,7 @@ const experiences = [
         tags: ["React", "Next.js", "REST APIs"]
     },
     {
-        year: "May 2024 - Present",
+        year: "May 2023 - Present",
         company: "Upwork",
         role: "Frontend Developer (Freelance)",
         description: "Collaborating with global clients to transform complex ideas into high-quality, interactive web solutions.",
@@ -30,69 +30,64 @@ const experiences = [
 ];
 
 export default function Experience() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], [300, -300]);
-
     return (
-        <section className="py-32 relative z-10 overflow-hidden bg-black/50" ref={containerRef}>
+        <section className="py-32 relative z-10" id="experience">
             <div className="container mx-auto px-6 mb-20">
                 <TextReveal
                     text="Experience"
-                    className="text-5xl md:text-7xl font-bold font-display text-white tracking-tighter"
+                    className="text-5xl md:text-7xl font-bold font-display text-white tracking-tighter mb-10"
                 />
             </div>
 
-            {/* Horizontal Sliding Track */}
-            <motion.div
-                style={{ x }}
-                className="flex gap-10 pl-6 md:pl-20 w-max"
-            >
-                {experiences.map((exp, index) => (
-                    <div
-                        key={index}
-                        className="w-[450px] min-h-[350px] bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 flex flex-col justify-between hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 group relative overflow-hidden"
-                    >
-                        {/* Subtle Card Glow */}
-                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-all duration-500" />
+            <div className="container mx-auto px-6 relative">
+                {/* Vertical Line */}
+                <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-purple-500/50 to-transparent" />
 
-                        <div className="absolute top-0 right-0 p-10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0">
-                            <ArrowRight className="text-white -rotate-45 h-6 w-6" />
-                        </div>
-
-                        <div>
-                            <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-medium uppercase tracking-widest text-neutral-400 mb-6">{exp.year}</span>
-                            <h3 className="text-3xl font-bold text-white mb-2 leading-tight">{exp.company}</h3>
-                            <p className="text-lg text-purple-400/90 font-medium mb-4">{exp.role}</p>
-                        </div>
-
-                        <div className="mt-auto">
-                            <p className="text-neutral-400 text-lg leading-relaxed mb-8">{exp.description}</p>
-                            <div className="flex flex-wrap gap-2">
-                                {exp.tags.map(tag => (
-                                    <span key={tag} className="text-xs text-neutral-500 border border-white/5 bg-white/[0.02] px-3 py-1.5 rounded-full hover:border-white/20 transition-colors">
-                                        {tag}
-                                    </span>
-                                ))}
+                <div className="space-y-20">
+                    {experiences.map((exp, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                                }`}
+                        >
+                            {/* Content Side */}
+                            <div className="md:w-1/2 md:px-12">
+                                <div className="p-8 rounded-3xl bg-neutral-900/50 backdrop-blur-xl border border-white/5 hover:border-purple-500/30 transition-colors group">
+                                    <span className="text-purple-400 font-mono text-sm mb-4 block tracking-wider">{exp.year}</span>
+                                    <h3 className="text-2xl font-bold text-white mb-2">{exp.company}</h3>
+                                    <p className="text-lg text-white/80 mb-4">{exp.role}</p>
+                                    <p className="text-neutral-400 leading-relaxed mb-6">{exp.description}</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {exp.tags.map(tag => (
+                                            <span key={tag} className="px-3 py-1 rounded-full bg-white/5 text-xs text-neutral-400 border border-white/5">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                ))}
 
-                {/* 'More' Card */}
-                <div className="w-[350px] flex items-center justify-center pr-20">
-                    <a href="/Muhammad_Saim_Raza_Frontend_Developer.pdf" target="_blank" rel="noopener noreferrer" className="text-left group cursor-pointer">
-                        <p className="text-neutral-500 text-lg mb-2 group-hover:text-neutral-400 transition-colors">Seeking more?</p>
-                        <h3 className="text-3xl font-bold text-white flex items-center gap-3 group-hover:text-purple-400 transition-colors">
-                            Full Resume <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-                        </h3>
+                            {/* Center Dot */}
+                            <div className="absolute left-6 md:left-1/2 -translate-x-[5px] md:-translate-x-1/2 w-4 h-4 rounded-full bg-black border-4 border-purple-500 z-10" />
+
+                            {/* Empty Side for alignment */}
+                            <div className="hidden md:block md:w-1/2" />
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="flex justify-center mt-20">
+                    <a href="/Muhammad_Saim_Raza_Frontend_Developer.pdf" target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="lg" className="rounded-full px-8 border-white/10 hover:bg-white/5">
+                            View Full Resume <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
                     </a>
                 </div>
-            </motion.div>
+            </div>
         </section>
     );
 }

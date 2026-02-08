@@ -11,10 +11,16 @@ export function Clock() {
     const [time, setTime] = useState<string | null>(null);
 
     useEffect(() => {
-        setTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }));
-        const interval = setInterval(() => {
-            setTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }));
-        }, 60000);
+        const updateTime = () => {
+            setTime(new Date().toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            }));
+        };
+
+        updateTime();
+        const interval = setInterval(updateTime, 60000);
         return () => clearInterval(interval);
     }, []);
 

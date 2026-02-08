@@ -21,7 +21,7 @@ export default function CTA() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/10" />
 
             <motion.div style={{ y }} className="container mx-auto px-6 text-center relative z-10">
-                <h2 className="text-6xl md:text-9xl font-bold font-display text-white mb-12 tracking-tighter leading-none">
+                <h2 className="text-5xl md:text-7xl font-bold font-display text-white mb-10 tracking-tighter leading-tight">
                     Let&apos;s Build <br /> Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Mighty.</span>
                 </h2>
 

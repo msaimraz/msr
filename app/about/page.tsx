@@ -1,10 +1,13 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Download, ArrowUpRight } from "lucide-react";
+import { Download, ArrowUpRight, Code, Layout, Smartphone, Database, Zap, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
+import Timeline from "@/components/about/Timeline";
+import Stats from "@/components/about/Stats";
 
 export default function AboutPage() {
     const containerRef = useRef(null);
@@ -89,56 +92,41 @@ export default function AboutPage() {
                     </div>
                 </div>
 
-                {/* Core Expertise Section */}
-                <div className="mt-40">
-                    <h2 className="text-3xl font-bold font-display text-white mb-16">Core Expertise</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { title: "Interactive UI", desc: "Crafting fluid, motion-driven interfaces using React and Framer Motion that feel alive." },
-                            { title: "Web Architecture", desc: "Designing scalable, maintainable frontend structures using Next.js and TypeScript." },
-                            { title: "AI-Assisted Dev", desc: "Leveraging cutting-edge AI tools to accelerate development and focus on high-value logic." },
-                            { title: "Performance", desc: "Optimizing Core Web Vitals and ensuring lightning-fast load times for global users." }
-                        ].map((exp, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="p-8 rounded-[2.5rem] border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all hover:-translate-y-2 duration-500"
-                            >
-                                <h3 className="text-xl font-bold text-white mb-4">{exp.title}</h3>
-                                <p className="text-neutral-400 text-sm leading-relaxed">{exp.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                <Stats />
 
-                {/* Education & Certs */}
-                <div className="mt-40 grid md:grid-cols-2 gap-20">
+                {/* Timeline & Philosophy Grid */}
+                <div className="grid lg:grid-cols-2 gap-20">
                     <div>
-                        <h2 className="text-3xl font-bold font-display text-white mb-10">Education</h2>
-                        <div className="p-8 rounded-3xl border border-white/10 bg-white/5">
-                            <h3 className="text-xl font-bold text-white mb-2">BS Software Engineering</h3>
-                            <p className="text-purple-400 mb-4">Virtual University of Pakistan</p>
-                            <span className="text-sm text-neutral-500">2022 — Present</span>
-                        </div>
+                        <h2 className="text-3xl font-bold font-display text-white mb-16">My Journey</h2>
+                        <Timeline />
                     </div>
+
                     <div>
-                        <h2 className="text-3xl font-bold font-display text-white mb-10">Certifications</h2>
-                        <div className="space-y-4">
+                        <h2 className="text-3xl font-bold font-display text-white mb-16">Core Philosophy</h2>
+                        <div className="space-y-6">
                             {[
-                                { title: "Web & App Development (MERN)", org: "Saylani Mass IT Training" },
-                                { title: "Frontend Web Development", org: "ConsulNet Corporation" },
-                                { title: "Microsoft Office 365", org: "Aptech Pakistan" }
-                            ].map((cert, i) => (
-                                <div key={i} className="p-6 rounded-2xl border border-white/5 bg-white/[0.02] flex justify-between items-center group hover:bg-white/[0.05] transition-colors">
-                                    <div>
-                                        <h4 className="font-bold text-white">{cert.title}</h4>
-                                        <p className="text-sm text-neutral-500">{cert.org}</p>
+                                { title: "User Obsessed", desc: "I don't just build features; I build experiences for real people.", icon: <Layout className="w-6 h-6 text-purple-400" /> },
+                                { title: "Pixel Perfection", desc: "God is in the details. Every margin, color, and animation timing matters.", icon: <Code className="w-6 h-6 text-blue-400" /> },
+                                { title: "Performance First", desc: "A beautiful site is useless if it doesn't load instantly. Speed is a feature.", icon: <Zap className="w-6 h-6 text-yellow-400" /> }
+                            ].map((item, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="p-8 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-colors">
+                                            {item.icon}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                                            <p className="text-neutral-400 leading-relaxed">{item.desc}</p>
+                                        </div>
                                     </div>
-                                    <ArrowUpRight className="text-neutral-700 group-hover:text-white transition-colors" />
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
@@ -152,49 +140,32 @@ export default function AboutPage() {
                             <p className="text-neutral-500 max-w-md">Tailored digital solutions to elevate your brand&apos;s online presence.</p>
                         </div>
                         <div className="h-[1px] flex-grow bg-white/10 hidden md:block mx-10 mb-5" />
+                        <Link href="/projects">
+                            <Button variant="outline" className="rounded-full">View My Work <ArrowUpRight className="ml-2 w-4 h-4" /></Button>
+                        </Link>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: "Full System Development", desc: "Building high-quality, scalable, and interactive web solutions from scratch." },
-                            { title: "JS (ES6) Custom Scripting", desc: "Enhancing functionality and interactivity with clean, optimized JavaScript." },
-                            { title: "Static & Dynamic Apps", desc: "Creating tailored websites using Next.js, React, and modern state management." },
-                            { title: "CMS & CRM Customization", desc: "Helping businesses manage and personalize their content workflows seamlessly." },
-                            { title: "Performance Optimization", desc: "Ensuring smooth performance with clean code and mobile-friendly responsive designs." },
-                            { title: "Bug Fixing & Audits", desc: "Identifying bottlenecks and resolving complex issues to ensure product stability." }
+                            { title: "Full System Development", desc: "Building high-quality, scalable, and interactive web solutions from scratch.", icon: <Layout /> },
+                            { title: "JS (ES6) Custom Scripting", desc: "Enhancing functionality and interactivity with clean, optimized JavaScript.", icon: <Code /> },
+                            { title: "Static & Dynamic Apps", desc: "Creating tailored websites using Next.js, React, and modern state management.", icon: <Smartphone /> },
+                            { title: "CMS & CRM Customization", desc: "Helping businesses manage and personalize their content workflows seamlessly.", icon: <Database /> },
+                            { title: "Performance Optimization", desc: "Ensuring smooth performance with clean code and mobile-friendly designs.", icon: <Zap /> },
+                            { title: "Bug Fixing & Audits", desc: "Identifying bottlenecks and resolving complex issues to ensure product stability.", icon: <Search /> }
                         ].map((service, i) => (
-                            <div key={i} className="flex gap-6 group">
-                                <div className="text-neutral-700 font-display text-4xl group-hover:text-purple-500 transition-colors">0{i + 1}</div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-                                    <p className="text-neutral-400 text-sm leading-relaxed">{service.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Philosophy Grid */}
-                <div className="mt-40">
-                    <h2 className="text-3xl font-bold font-display text-white mb-16">Work Philosophy</h2>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            { title: "User Obsessed", desc: "I don't just build features; I build experiences for real people." },
-                            { title: "Pixel Perfection", desc: "God is in the details. Every margin, color, and animation timing matters." },
-                            { title: "Performance First", desc: "A beautiful site is useless if it doesn't load instantly." }
-                        ].map((item, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="group p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 relative overflow-hidden"
+                                transition={{ delay: i * 0.05 }}
+                                className="group p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-purple-500/30 transition-all duration-300"
                             >
-                                <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
-                                    <ArrowUpRight />
+                                <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit text-white group-hover:scale-110 group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-all duration-300">
+                                    {service.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                                <p className="text-neutral-400 group-hover:text-neutral-300 transition-colors">{item.desc}</p>
+                                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                                <p className="text-neutral-400 text-sm leading-relaxed">{service.desc}</p>
                             </motion.div>
                         ))}
                     </div>

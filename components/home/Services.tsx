@@ -1,30 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Monitor, Palette, Zap, Code, Search, Layers } from "lucide-react";
-
-const services = [
-    {
-        icon: <Monitor className="w-8 h-8" />,
-        title: "Frontend Development",
-        description: "Pixel-perfect, responsive websites converted from Figma to clean, reusable code."
-    },
-    {
-        icon: <Palette className="w-8 h-8" />,
-        title: "UI/UX Design",
-        description: "Modern, intuitive interfaces designed with a focus on user experience and brand identity."
-    },
-    {
-        icon: <Zap className="w-8 h-8" />,
-        title: "Performance",
-        description: "Optimizing applications for maximum speed, accessibility, and SEO ranking."
-    },
-    {
-        icon: <Code className="w-8 h-8" />,
-        title: "Full Stack",
-        description: "Seamless integration of frontend wizards with robust backend architectures."
-    }
-];
+import { Layout, Code, Smartphone, Database, Zap, Search } from "lucide-react";
 
 export default function Services() {
     return (
@@ -37,21 +14,42 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {services.map((service, index) => (
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        {
+                            title: "Frontend Development",
+                            desc: "Pixel-perfect, responsive websites converted from Figma to clean, reusable code.",
+                            icon: <Layout />
+                        },
+                        {
+                            title: "UI/UX Design",
+                            desc: "Modern, intuitive interfaces designed with a focus on user experience and brand identity.",
+                            icon: <Smartphone />
+                        },
+                        {
+                            title: "Performance",
+                            desc: "Optimizing applications for maximum speed, accessibility, and SEO ranking.",
+                            icon: <Zap />
+                        },
+                        {
+                            title: "Full Stack",
+                            desc: "Seamless integration of frontend wizards with robust backend architectures.",
+                            icon: <Code />
+                        }
+                    ].map((service, i) => (
                         <motion.div
-                            key={index}
+                            key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="bg-neutral-900/50 border border-white/10 p-8 rounded-3xl hover:bg-white/5 transition-colors group"
+                            transition={{ delay: i * 0.05 }}
+                            className="group p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-purple-500/30 transition-all duration-300"
                         >
-                            <div className="mb-6 text-white group-hover:text-purple-400 transition-colors">
+                            <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit text-white group-hover:scale-110 group-hover:bg-purple-500/20 group-hover:text-purple-400 transition-all duration-300">
                                 {service.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                            <p className="text-neutral-400">{service.description}</p>
+                            <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+                            <p className="text-neutral-400 text-sm leading-relaxed">{service.desc}</p>
                         </motion.div>
                     ))}
                 </div>

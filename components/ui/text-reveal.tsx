@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,7 @@ export const TextReveal = ({ text, className, delay = 0 }: TextRevealProps) => {
         }),
     };
 
-    const child: any = {
+    const child: Variants = {
         visible: {
             opacity: 1,
             y: 0,
