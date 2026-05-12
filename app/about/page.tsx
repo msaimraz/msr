@@ -54,13 +54,13 @@ export default function AboutPage() {
                         className="space-y-8 text-xl text-neutral-400 leading-relaxed"
                     >
                         <p>
-                            I&apos;m <span className="text-white font-bold">Muhammad Saim Raza</span>, a dedicated Frontend Developer with a proven track record of over 3 years in crafting sophisticated, high-performance web applications. My approach combines technical precision with a deep understanding of user-centric design.
+                            I&apos;m <span className="text-white font-bold">Muhammad Saim Raza</span>, a Frontend Engineer with over 3 years of experience building scalable, production-ready web applications using <span className="text-white">React, Next.js, and TypeScript</span>. My focus is on translating complex designs into performant, responsive interfaces that drive business value.
                         </p>
                         <p>
-                            Throughout my career, I&apos;ve had the privilege of delivering real-world systems for major international clients, including <span className="text-purple-400">Colgate Palmolive (PK)</span>, <span className="text-blue-400">Smart Dental Compliance (UK)</span>, and <span className="text-orange-400">SharkSpeed (SE)</span>. These projects have shaped my ability to translate complex business requirements into seamless, pixel-perfect interactive experiences.
+                            Throughout my career, I&apos;ve delivered high-impact systems for international clients, including <span className="text-purple-400">Colgate Palmolive</span>, <span className="text-blue-400">Smart Dental Compliance (UK)</span>, and <span className="text-orange-400">SharkSpeed (SE)</span>. I specialize in developing robust frontend architectures that are both maintainable and highly optimized.
                         </p>
                         <p>
-                            Specializing in the <span className="text-white">React ecosystem</span>—specifically <span className="text-white">Next.js</span> and <span className="text-white">TypeScript</span>—I push the boundaries of modern frontend engineering. I am also an early adopter of <span className="text-purple-400">AI-assisted development</span>, utilizing tools like Antigravity, Claude, and Lovable to rapidly prototype and ship scalable, production-ready code.
+                            I help startups and agencies bridge the gap between design and production code, ensuring that every pixel serves a purpose and every interaction feels seamless. By leveraging modern tools and engineering best practices, I deliver solutions that are fast, accessible, and ready for scale.
                         </p>
 
                         <div className="pt-8">
@@ -146,12 +146,12 @@ export default function AboutPage() {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: "Full System Development", desc: "Building high-quality, scalable, and interactive web solutions from scratch.", icon: <Layout /> },
-                            { title: "JS (ES6) Custom Scripting", desc: "Enhancing functionality and interactivity with clean, optimized JavaScript.", icon: <Code /> },
-                            { title: "Static & Dynamic Apps", desc: "Creating tailored websites using Next.js, React, and modern state management.", icon: <Smartphone /> },
-                            { title: "CMS & CRM Customization", desc: "Helping businesses manage and personalize their content workflows seamlessly.", icon: <Database /> },
-                            { title: "Performance Optimization", desc: "Ensuring smooth performance with clean code and mobile-friendly designs.", icon: <Zap /> },
-                            { title: "Bug Fixing & Audits", desc: "Identifying bottlenecks and resolving complex issues to ensure product stability.", icon: <Search /> }
+                            { title: "React / Next.js Development", desc: "Building scalable, high-performance web applications with the latest React & Next.js features.", icon: <Layout /> },
+                            { title: "Figma to Frontend", desc: "Translating complex design systems into pixel-perfect, responsive React components.", icon: <Smartphone /> },
+                            { title: "SaaS Dashboard UI", desc: "Developing data-driven, intuitive dashboards with complex state management.", icon: <Zap /> },
+                            { title: "Landing Pages", desc: "Crafting high-converting, performance-optimized landing pages for startups.", icon: <Layout /> },
+                            { title: "Frontend Optimization", desc: "Improving Core Web Vitals, speed, and overall performance for existing apps.", icon: <Search /> },
+                            { title: "API Integration", desc: "Seamlessly connecting frontends with robust backend architectures and third-party services.", icon: <Database /> }
                         ].map((service, i) => (
                             <motion.div
                                 key={i}

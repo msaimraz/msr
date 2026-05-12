@@ -35,8 +35,8 @@ function Card({ project, index, range, targetScale, progress }: {
                 <div className="flex gap-16 h-full z-10 relative">
                     {/* Text Content */}
                     <div className="w-[40%] flex flex-col justify-between py-4">
-                        <div>
-                            <div className="flex items-center gap-4 mb-8">
+                        <div className="overflow-y-auto pr-4 scrollbar-hide">
+                            <div className="flex items-center gap-4 mb-6">
                                 <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-sm font-mono text-white">
                                     0{index + 1}
                                 </span>
@@ -45,23 +45,38 @@ function Card({ project, index, range, targetScale, progress }: {
                                 </span>
                             </div>
 
-                            <h3 className="text-5xl font-bold font-display text-white mb-6 leading-[1.1]">
+                            <h3 className="text-4xl font-bold font-display text-white mb-4 leading-tight">
                                 {project.title}
                             </h3>
-                            <p className="text-lg text-neutral-400 leading-relaxed mb-8">
+                            
+                            <p className="text-base text-neutral-400 leading-relaxed mb-6">
                                 {project.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-2">
+                            {project.responsibilities && (
+                                <div className="mb-6">
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Key Responsibilities</h4>
+                                    <ul className="grid grid-cols-1 gap-2">
+                                        {project.responsibilities.map((resp, i) => (
+                                            <li key={i} className="text-sm text-neutral-300 flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                                                {resp}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
+                            <div className="flex flex-wrap gap-2 mb-6">
                                 {project.tags.map(tag => (
-                                    <span key={tag} className="text-xs font-medium text-neutral-500 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
+                                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-white bg-white/5 px-3 py-1 rounded-full border border-white/10">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
                         </div>
 
-                        <Link href={project.url} target="_blank" rel="noopener noreferrer" className="inline-block mt-8">
+                        <Link href={project.url} target="_blank" rel="noopener noreferrer" className="inline-block mt-4">
                             <span className="group inline-flex items-center text-lg font-medium text-white border-b border-white/20 pb-1 hover:border-white transition-colors">
                                 View Case Study <ArrowUpRight className="ml-2 h-5 w-5 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                             </span>

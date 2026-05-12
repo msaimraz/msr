@@ -14,26 +14,36 @@ export default function Services() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {[
                         {
-                            title: "Frontend Development",
-                            desc: "Pixel-perfect, responsive websites converted from Figma to clean, reusable code.",
+                            title: "React / Next.js Development",
+                            desc: "Building scalable, high-performance web applications using the latest React ecosystem and Next.js features.",
                             icon: <Layout />
                         },
                         {
-                            title: "UI/UX Design",
-                            desc: "Modern, intuitive interfaces designed with a focus on user experience and brand identity.",
+                            title: "Figma to Frontend",
+                            desc: "Translating complex design systems into pixel-perfect, responsive, and accessible React components.",
                             icon: <Smartphone />
                         },
                         {
-                            title: "Performance",
-                            desc: "Optimizing applications for maximum speed, accessibility, and SEO ranking.",
+                            title: "SaaS Dashboard UI",
+                            desc: "Designing and developing data-rich, intuitive dashboards with complex state management and real-time updates.",
                             icon: <Zap />
                         },
                         {
-                            title: "Full Stack",
-                            desc: "Seamless integration of frontend wizards with robust backend architectures.",
+                            title: "Frontend Optimization",
+                            desc: "Improving Core Web Vitals, SEO, and overall performance to ensure a seamless user experience.",
+                            icon: <Search />
+                        },
+                        {
+                            title: "API Integration",
+                            desc: "Seamlessly connecting frontends with RESTful APIs, GraphQL, and headless CMS platforms like Supabase.",
+                            icon: <Database />
+                        },
+                        {
+                            title: "Responsive Web Apps",
+                            desc: "Creating fluid, mobile-first experiences that work flawlessly across all devices and screen sizes.",
                             icon: <Code />
                         }
                     ].map((service, i) => (

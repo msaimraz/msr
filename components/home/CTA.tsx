@@ -22,18 +22,25 @@ export default function CTA() {
 
             <motion.div style={{ y }} className="container mx-auto px-6 text-center relative z-10">
                 <h2 className="text-5xl md:text-7xl font-bold font-display text-white mb-10 tracking-tighter leading-tight">
-                    Let&apos;s Build <br /> Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Mighty.</span>
+                    Building a modern <br /> website or <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">SaaS product?</span>
                 </h2>
 
                 <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-16">
-                    Ready to take your digital presence to the next level? I&apos;m currently available for freelance projects and open to new opportunities.
+                    I help startups and businesses build fast, scalable frontend experiences using React & Next.js. Available for freelance & select remote opportunities.
                 </p>
 
-                <Link href="/contact">
-                    <Button as="div" size="lg" className="h-20 px-12 text-xl rounded-full bg-white text-black hover:scale-105 transition-transform duration-300 shadow-[0_0_50px_rgba(255,255,255,0.2)] cursor-pointer">
-                        Start a Project <ArrowRight className="ml-3 h-6 w-6" />
-                    </Button>
-                </Link>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                    <Link href="/contact">
+                        <Button as="div" size="lg" className="h-20 px-12 text-xl rounded-full bg-white text-black hover:scale-105 transition-transform duration-300 shadow-[0_0_50px_rgba(255,255,255,0.2)] cursor-pointer">
+                            Let&apos;s Talk <ArrowRight className="ml-3 h-6 w-6" />
+                        </Button>
+                    </Link>
+                    <Link href="/projects">
+                        <Button as="div" variant="outline" size="lg" className="h-20 px-12 text-xl rounded-full border-white/10 hover:bg-white/5 text-white cursor-pointer transition-all duration-300">
+                            View Projects
+                        </Button>
+                    </Link>
+                </div>
             </motion.div>
         </section>
     );

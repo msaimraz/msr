@@ -9,21 +9,21 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msr.bydansam.com/"),
+  metadataBase: new URL("https://msaimraza.vercel.app/"),
   title: {
-    default: "Muhammad Saim Raza | Frontend Developer",
+    default: "Muhammad Saim Raza | Frontend Engineer | React & Next.js Specialist",
     template: "%s | Muhammad Saim Raza"
   },
-  description: "Portfolio of Muhammad Saim Raza, a creative Frontend Developer specializing in React, Next.js, and motion-driven user experiences.",
-  keywords: ["Frontend Developer", "React Developer", "Next.js", "UI Engineer", "Web Developer", "Pakistan"],
+  description: "Frontend Engineer with 3+ years of experience building scalable, production-ready web applications for startups and international clients using React, Next.js, and TypeScript.",
+  keywords: ["Frontend Engineer", "React Developer", "Next.js Specialist", "TypeScript Developer", "SaaS UI Engineer", "Remote Developer"],
   authors: [{ name: "Muhammad Saim Raza" }],
   creator: "Muhammad Saim Raza",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://msr.bydansam.com/",
-    title: "Muhammad Saim Raza | Frontend Developer",
-    description: "Building production-ready web applications for international clients.",
+    url: "https://msaimraza.vercel.app/",
+    title: "Muhammad Saim Raza | Frontend Engineer | React & Next.js Specialist",
+    description: "Building scalable, high-performance web applications for international clients.",
     siteName: "Muhammad Saim Raza Portfolio"
   },
   twitter: {
@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+  },
+  verification: {
+    google: "aUIiDPRzudqAZU6S8lPDoZvdM2xds7mxjNUf22yY4",
   },
   icons: {
     icon: "/icon.png",
@@ -49,8 +52,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Saim Raza",
+    "jobTitle": "Frontend Engineer",
+    "url": "https://msaimraza.vercel.app/",
+    "sameAs": [
+      "https://github.com/msaimraz",
+      "https://linkedin.com/in/m-saim-raza",
+      "https://upwork.com/freelancers/msaimraz"
+    ],
+    "description": "Frontend Engineer specializing in React, Next.js, and TypeScript, building scalable web applications for startups and international clients.",
+    "knowsAbout": ["React", "Next.js", "TypeScript", "Frontend Engineering", "SaaS Development"]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={cn(

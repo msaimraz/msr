@@ -53,24 +53,24 @@ export default function Hero() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                             </span>
-                            Available for freelance work
+                            Available for freelance & select remote opportunities
                         </motion.div>
 
                         <h1 className="text-5xl md:text-7xl font-bold font-display text-white leading-[1.1] mb-6 tracking-tight">
-                            Building <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Digital Reality</span> <br />
-                            One Pixel at a Time.
+                            Frontend Engineer <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Building Scalable</span> <br />
+                            Web Applications.
                         </h1>
 
                         <p className="text-xl text-neutral-400 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                            I&apos;m <span className="text-white font-medium">Saim</span>, a Frontend Developer with 3+ years of experience building responsive, production-ready web applications for international clients.
+                            3+ years building responsive, production-ready interfaces for startups, agencies, and international clients using <span className="text-white">React & Next.js</span>.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link href="/projects">
                                 <Button as="div" size="lg" className="group relative overflow-hidden bg-white text-black hover:bg-white/90 transition-all duration-300 cursor-pointer">
                                     <span className="relative z-10 flex items-center">
-                                        View Work
+                                        View Projects
                                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                     </span>
                                     <motion.div
@@ -83,7 +83,7 @@ export default function Hero() {
                             </Link>
                             <Link href="/contact">
                                 <Button as="div" variant="secondary" size="lg" className="backdrop-blur-xl bg-white/5 border-white/10 hover:bg-white/10 cursor-pointer">
-                                    Contact Me
+                                    Let&apos;s Work Together
                                 </Button>
                             </Link>
                         </div>
@@ -91,7 +91,7 @@ export default function Hero() {
                         <div className="mt-12 flex items-center justify-center lg:justify-start gap-6 text-neutral-500">
                             <a href="https://github.com/msaimraz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github size={24} /></a>
                             <a href="https://linkedin.com/in/m-saim-raza" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={24} /></a>
-                            <a href="https://www.upwork.com/freelancers/~01e6fcc04c252730b4" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                            <a href="https://upwork.com/freelancers/msaimraz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                                 <span className="font-bold text-lg">Up</span>
                             </a>
                         </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="text-sm font-medium text-white">99% Code Quality</span>
+                                    <span className="text-sm font-medium text-white">10+ Production Projects</span>
                                 </div>
                             </motion.div>
 
@@ -139,10 +139,10 @@ export default function Hero() {
                                 className="absolute bottom-20 -left-10 bg-black/50 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-xl"
                             >
                                 <div className="flex items-center gap-3">
-                                    <span className="text-2xl">✨</span>
+                                    <span className="text-2xl">🌍</span>
                                     <div>
-                                        <p className="text-xs text-neutral-400">Experience</p>
-                                        <p className="text-sm font-bold text-white">3+ Years</p>
+                                        <p className="text-xs text-neutral-400">Clients</p>
+                                        <p className="text-sm font-bold text-white">International</p>
                                     </div>
                                 </div>
                             </motion.div>

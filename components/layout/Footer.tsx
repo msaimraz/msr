@@ -53,7 +53,7 @@ export default function Footer() {
                     {/* Column 1: Let's Connect */}
                     <div>
                         <h2 className="text-5xl md:text-7xl font-bold font-display text-white mb-10 tracking-tighter leading-none">
-                            Let&apos;s make it <br /> happen.
+                            Let&apos;s build <br /> together.
                         </h2>
                         <div className="flex flex-col gap-4 items-start">
                             <Magnetic>
@@ -62,8 +62,8 @@ export default function Footer() {
                                 </a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.upwork.com/freelancers/~01e6fcc04c252730b4" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 text-xl text-purple-400 border border-purple-500/20 rounded-full px-8 py-4 hover:bg-purple-500 hover:text-white transition-all group">
-                                    <span className="font-bold">Upwork</span> Hire Me on Upwork <ArrowUpRight className="group-hover:rotate-45 transition-transform" />
+                                <a href="https://upwork.com/freelancers/msaimraz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 text-xl text-purple-400 border border-purple-500/20 rounded-full px-8 py-4 hover:bg-purple-500 hover:text-white transition-all group">
+                                    <span className="font-bold">Upwork</span> Hire me on Upwork <ArrowUpRight className="group-hover:rotate-45 transition-transform" />
                                 </a>
                             </Magnetic>
                         </div>
@@ -85,7 +85,7 @@ export default function Footer() {
                         <nav className="flex flex-col gap-4">
                             <a href="https://github.com/msaimraz" target="_blank" rel="noopener noreferrer" className="text-xl text-white/60 hover:text-white transition-colors w-max">Github</a>
                             <a href="https://linkedin.com/in/m-saim-raza" target="_blank" rel="noopener noreferrer" className="text-xl text-white/60 hover:text-white transition-colors w-max">LinkedIn</a>
-                            <a href="https://www.upwork.com/freelancers/~01e6fcc04c252730b4" target="_blank" rel="noopener noreferrer" className="text-xl text-white/60 hover:text-white transition-colors w-max">Upwork</a>
+                            <a href="https://upwork.com/freelancers/msaimraz" target="_blank" rel="noopener noreferrer" className="text-xl text-white/60 hover:text-white transition-colors w-max">Upwork</a>
                         </nav>
                     </div>
                 </div>
