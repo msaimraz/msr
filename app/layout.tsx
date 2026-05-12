@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: "aUIiDPRzudqAZU6S8lPDoZvdM2xds7mxjNUf22yY4",
+    google: "x_zpNU3JGLgwKdPrGAnyaa7eXTPYxs7zjK-zcfJzddU",
   },
   icons: {
     icon: "/icon.png",
