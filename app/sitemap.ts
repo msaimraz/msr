@@ -1,29 +1,38 @@
 import { MetadataRoute } from 'next'
-
-export const dynamic = 'force-static'
+import { projects } from '@/lib/data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = 'https://msaimraza.vercel.app'
+
+    const projectEntries = projects.map((project) => ({
+        url: `${baseUrl}/projects/${project.id}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+    }))
+
     return [
         {
-            url: 'https://saim.dev',
+            url: baseUrl,
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 1,
         },
         {
-            url: 'https://saim.dev/about',
+            url: `${baseUrl}/about`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://saim.dev/projects',
+            url: `${baseUrl}/projects`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
+        ...projectEntries,
         {
-            url: 'https://saim.dev/contact',
+            url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 0.5,

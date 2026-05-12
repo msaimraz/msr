@@ -9,7 +9,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msaimraza.vercel.app/"),
+  metadataBase: new URL("https://msaimraza.vercel.app"),
   title: {
     default: "Muhammad Saim Raza | Frontend Engineer | React & Next.js Specialist",
     template: "%s | Muhammad Saim Raza"
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://msaimraza.vercel.app/",
+    url: "https://msaimraza.vercel.app",
     title: "Muhammad Saim Raza | Frontend Engineer | React & Next.js Specialist",
     description: "Building scalable, high-performance web applications for international clients.",
     siteName: "Muhammad Saim Raza Portfolio"
@@ -57,7 +57,7 @@ export default function RootLayout({
     "@type": "Person",
     "name": "Muhammad Saim Raza",
     "jobTitle": "Frontend Engineer",
-    "url": "https://msaimraza.vercel.app/",
+    "url": "https://msaimraza.vercel.app",
     "sameAs": [
       "https://github.com/msaimraz",
       "https://linkedin.com/in/m-saim-raza",
